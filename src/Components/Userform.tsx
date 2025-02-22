@@ -1,22 +1,25 @@
-import { PhotoIcon, UserCircleIcon } from '@heroicons/react/24/solid'
-import { ChevronDownIcon } from '@heroicons/react/16/solid'
-import { defaultAllowedOrigins } from 'vite'
+import { PhotoIcon, UserCircleIcon } from "@heroicons/react/24/solid";
+import { ChevronDownIcon } from "@heroicons/react/16/solid";
+import { defaultAllowedOrigins } from "vite";
 
- const Userform = () => {
+const Userform = () => {
   return (
-    <form >
+    <form>
       <div className="space-y-12 sm:space-y-16">
         <div>
-          
-
           <div className="mt-10 space-y-8 border-b border-gray-900/10 pb-12 sm:space-y-0 sm:divide-y sm:divide-gray-900/10 sm:border-t sm:pb-0">
             <div className="sm:grid sm:grid-cols-3 sm:items-start sm:gap-4 sm:py-6">
-              <label htmlFor="username" className="block text-sm/6 font-medium text-gray-900 sm:pt-1.5">
+              <label
+                htmlFor="username"
+                className="block text-sm/6 font-medium text-gray-900 sm:pt-1.5"
+              >
                 Username
               </label>
               <div className="mt-2 sm:col-span-2 sm:mt-0">
                 <div className="flex items-center rounded-md bg-white pl-3 outline outline-1 -outline-offset-1 outline-gray-300 focus-within:outline focus-within:outline-2 focus-within:-outline-offset-2 focus-within:outline-indigo-600 sm:max-w-md">
-                  <div className="shrink-0 select-none text-base text-gray-500 sm:text-sm/6">workcation.com/</div>
+                  <div className="shrink-0 select-none text-base text-gray-500 sm:text-sm/6">
+                    workcation.com/
+                  </div>
                   <input
                     id="username"
                     name="username"
@@ -28,7 +31,10 @@ import { defaultAllowedOrigins } from 'vite'
               </div>
             </div>
             <div className="sm:grid sm:grid-cols-3 sm:items-start sm:gap-4 sm:py-6">
-              <label htmlFor="Password" className="block text-sm/6 font-medium text-gray-900 sm:pt-1.5">
+              <label
+                htmlFor="Password"
+                className="block text-sm/6 font-medium text-gray-900 sm:pt-1.5"
+              >
                 Password
               </label>
               <div className="mt-2 sm:col-span-2 sm:mt-0">
@@ -45,15 +51,19 @@ import { defaultAllowedOrigins } from 'vite'
               </div>
             </div>
 
-            
-
             <div className="sm:grid sm:grid-cols-3 sm:items-center sm:gap-4 sm:py-6">
-              <label htmlFor="photo" className="block text-sm/6 font-medium text-gray-900">
+              <label
+                htmlFor="photo"
+                className="block text-sm/6 font-medium text-gray-900"
+              >
                 Photo
               </label>
               <div className="mt-2 sm:col-span-2 sm:mt-0">
                 <div className="flex items-center gap-x-3">
-                  <UserCircleIcon aria-hidden="true" className="size-12 text-gray-300" />
+                  <UserCircleIcon
+                    aria-hidden="true"
+                    className="size-12 text-gray-300"
+                  />
                   <button
                     type="button"
                     className="rounded-md bg-white px-2.5 py-1.5 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50"
@@ -63,16 +73,16 @@ import { defaultAllowedOrigins } from 'vite'
                 </div>
               </div>
             </div>
-
-            
           </div>
         </div>
 
         <div>
-          
           <div className="mt-10 space-y-8 border-b border-gray-900/10 pb-12 sm:space-y-0 sm:divide-y sm:divide-gray-900/10 sm:border-t sm:pb-0">
             <div className="sm:grid sm:grid-cols-3 sm:items-start sm:gap-4 sm:py-6">
-              <label htmlFor="first-name" className="block text-sm/6 font-medium text-gray-900 sm:pt-1.5">
+              <label
+                htmlFor="first-name"
+                className="block text-sm/6 font-medium text-gray-900 sm:pt-1.5"
+              >
                 First name
               </label>
               <div className="mt-2 sm:col-span-2 sm:mt-0">
@@ -87,7 +97,10 @@ import { defaultAllowedOrigins } from 'vite'
             </div>
 
             <div className="sm:grid sm:grid-cols-3 sm:items-start sm:gap-4 sm:py-6">
-              <label htmlFor="last-name" className="block text-sm/6 font-medium text-gray-900 sm:pt-1.5">
+              <label
+                htmlFor="last-name"
+                className="block text-sm/6 font-medium text-gray-900 sm:pt-1.5"
+              >
                 Last name
               </label>
               <div className="mt-2 sm:col-span-2 sm:mt-0">
@@ -102,7 +115,10 @@ import { defaultAllowedOrigins } from 'vite'
             </div>
 
             <div className="sm:grid sm:grid-cols-3 sm:items-start sm:gap-4 sm:py-6">
-              <label htmlFor="email" className="block text-sm/6 font-medium text-gray-900 sm:pt-1.5">
+              <label
+                htmlFor="email"
+                className="block text-sm/6 font-medium text-gray-900 sm:pt-1.5"
+              >
                 Email address
               </label>
               <div className="mt-2 sm:col-span-2 sm:mt-0">
@@ -116,11 +132,11 @@ import { defaultAllowedOrigins } from 'vite'
               </div>
             </div>
 
-            
-            
-
             <div className="sm:grid sm:grid-cols-3 sm:items-start sm:gap-4 sm:py-6">
-              <label htmlFor="city" className="block text-sm/6 font-medium text-gray-900 sm:pt-1.5">
+              <label
+                htmlFor="city"
+                className="block text-sm/6 font-medium text-gray-900 sm:pt-1.5"
+              >
                 City
               </label>
               <div className="mt-2 sm:col-span-2 sm:mt-0">
@@ -133,14 +149,8 @@ import { defaultAllowedOrigins } from 'vite'
                 />
               </div>
             </div>
-
-            
-
-            
           </div>
         </div>
-
-        
       </div>
 
       <div className="mt-6 flex items-center justify-end gap-x-6">
@@ -155,6 +165,6 @@ import { defaultAllowedOrigins } from 'vite'
         </button>
       </div>
     </form>
-  )
-}
-export default Userform ;
+  );
+};
+export default Userform;
