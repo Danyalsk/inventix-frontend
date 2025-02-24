@@ -30,6 +30,8 @@ import {
 
 import { Outlet, useLocation, useNavigate } from "react-router-dom";
 
+import { logout } from "../hooks/useAuth";
+
 const navigation = [
   { name: "Dashboard", href: "/dashboard", icon: HomeIcon },
   { name: "Users", href: "/user", icon: UsersIcon },
@@ -274,6 +276,11 @@ export default function Example() {
                         <a
                           href={item.href}
                           className="block px-3 py-1 text-sm/6 text-gray-900 data-[focus]:bg-gray-50 data-[focus]:outline-none"
+                          onClick={() => {
+                            if (item.name === "Sign out") {
+                              logout();
+                            }
+                          }}
                         >
                           {item.name}
                         </a>
