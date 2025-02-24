@@ -9,7 +9,7 @@ import { DNA } from "react-loader-spinner"; // Import the loader
 import "./App.css";
 
 // Lazy Load Components
-const SignUp = lazy(() => import("./pages/SignUp.tsx"));
+const SignUp = lazy(() => import("./pages/users/SignUp"));
 const Dashboard = lazy(() => import("./pages/users/Dashboard.tsx"));
 const User = lazy(() => import("./pages/users/User"));
 const AddUser = lazy(() => import("./pages/users/AddUser"));
