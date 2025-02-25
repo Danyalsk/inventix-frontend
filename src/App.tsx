@@ -40,7 +40,7 @@ const Loader = () => (
 const LazyWrapper = ({
   Component,
 }: {
-  Component: React.LazyExoticComponent<React.ComponentType<any>>;
+  Component: React.LazyExoticComponent<React.ComponentType<unknown>>;
 }) => (
   <Suspense fallback={<Loader />}>
     <Component />
