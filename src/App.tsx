@@ -1,11 +1,12 @@
 import { JSX, lazy, Suspense } from "react";
 import {
-  createBrowserRouter,
+  BrowserRouter as Router,
+  Routes,
+  Route,
   Navigate,
-  RouterProvider,
 } from "react-router-dom";
 import Layout from "./pages/Layout";
-import { DNA } from "react-loader-spinner"; // Import the loader
+import { DNA } from "react-loader-spinner";
 import "./App.css";
 
 // Lazy Load Components
@@ -36,53 +37,69 @@ const Loader = () => (
   </div>
 );
 
-// Suspense Wrapper with DNA Loader
-const LazyWrapper = (
-  Component: React.LazyExoticComponent<() => JSX.Element>
-) => (
+const LazyWrapper = ({
+  Component,
+}: {
+  Component: React.LazyExoticComponent<React.ComponentType<any>>;
+}) => (
   <Suspense fallback={<Loader />}>
     <Component />
   </Suspense>
 );
 
-// Router Configuration
-const router = createBrowserRouter([
-  {
-    path: "/login",
-    element: isAuthenticated() ? (
-      <Navigate to="/dashboard" replace />
-    ) : (
-      LazyWrapper(SignUp)
-    ),
-  },
-  {
-    path: "/",
-    element: (
-      <Navigate to={isAuthenticated() ? "/dashboard" : "/login"} replace />
-    ),
-  },
-  {
-    element: <Layout />,
-    children: [
-      {
-        path: "dashboard",
-        element: <ProtectedRoute element={LazyWrapper(Dashboard)} />,
-      },
-      { path: "user", element: <ProtectedRoute element={LazyWrapper(User)} /> },
-      {
-        path: "add-user",
-        element: <ProtectedRoute element={LazyWrapper(AddUser)} />,
-      },
-      {
-        path: "edit-user",
-        element: <ProtectedRoute element={LazyWrapper(EditUser)} />,
-      },
-    ],
-  },
-]);
-
 function App() {
-  return <RouterProvider router={router} />;
+  return (
+    <Router>
+      <Routes>
+        <Route
+          path="/login"
+          element={
+            isAuthenticated() ? (
+              <Navigate to="/dashboard" replace />
+            ) : (
+              <LazyWrapper Component={SignUp} />
+            )
+          }
+        />
+        <Route
+          path="/"
+          element={
+            <Navigate
+              to={isAuthenticated() ? "/dashboard" : "/login"}
+              replace
+            />
+          }
+        />
+
+        <Route element={<Layout />}>
+          <Route
+            path="dashboard"
+            element={
+              <ProtectedRoute element={<LazyWrapper Component={Dashboard} />} />
+            }
+          />
+          <Route
+            path="user"
+            element={
+              <ProtectedRoute element={<LazyWrapper Component={User} />} />
+            }
+          />
+          <Route
+            path="add-user"
+            element={
+              <ProtectedRoute element={<LazyWrapper Component={AddUser} />} />
+            }
+          />
+          <Route
+            path="edit-user"
+            element={
+              <ProtectedRoute element={<LazyWrapper Component={EditUser} />} />
+            }
+          />
+        </Route>
+      </Routes>
+    </Router>
+  );
 }
 
 export default App;
