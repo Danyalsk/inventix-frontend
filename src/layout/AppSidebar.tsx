@@ -59,8 +59,8 @@ const navItems: NavItem[] = [
     //   { name: "404 Error", path: "/error-404", pro: false },
     // ],
     subItems: [
-      { name: "All Users", path: "/blank", pro: false },
-      { name: "Add User", path: "/error-404", pro: false },
+      { name: "All Users", path: "/users", pro: false },
+      { name: "Add User", path: "/add-users", pro: false },
     ],
   },
 ];
