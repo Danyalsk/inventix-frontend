@@ -12,6 +12,17 @@ export default function UserForm() {
     { code: "AU", label: "+61" },
   ];
 
+  // first_name,
+  // last_name,
+  // email,
+  // phone,
+  // username,
+  // hashedPassword,
+  // status,
+  // role,
+  // profile,
+  // notes,
+
   const handlePhoneNumberChange = (phoneNumber: string) => {
     console.log("Updated phone number:", phoneNumber);
   };

@@ -307,7 +307,7 @@ const AppSidebar: React.FC = () => {
           !isExpanded && !isHovered ? "lg:justify-center" : "justify-start"
         }`}
       >
-        <Link to="/">
+        <Link to="/" className="w-full flex justify-center">
           {isExpanded || isHovered || isMobileOpen ? (
             <>
               <img
@@ -317,13 +317,7 @@ const AppSidebar: React.FC = () => {
                 width={150}
                 height={40}
               />
-              <img
-                className="hidden dark:block"
-                src="/images/logo/logo-dark.svg"
-                alt="Logo"
-                width={150}
-                height={40}
-              />
+              <div className="text-white flex items-center">Inventix</div>
             </>
           ) : (
             <img
