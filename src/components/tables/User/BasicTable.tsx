@@ -170,7 +170,7 @@ export default function BasicTable({ users }: BasicTableProps) {
                           <img
                             width={40}
                             height={40}
-                            src={"/images/user/user-18.jpg"}
+                            src={user.profile}
                             alt={`${user.first_name} ${user.last_name}`}
                           />
                         </div>
