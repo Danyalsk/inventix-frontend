@@ -29,6 +29,10 @@ const role = [
     value: "Employee",
     label: "Employee",
   },
+  {
+    value: "User",
+    label: "User",
+  },
 ];
 
 export default function AddUsers() {
