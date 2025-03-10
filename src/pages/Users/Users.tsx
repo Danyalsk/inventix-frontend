@@ -1,20 +1,9 @@
-import { useEffect, useState } from "react";
 import PageBreadcrumb from "../../components/common/PageBreadCrumb";
 import BasicTable from "../../components/tables/User/BasicTable";
-import axios from "axios";
+import { useUsers } from "../../hooks/userslist";
 
 export default function Users() {
-  const [users, setUsers] = useState([]);
-
-  useEffect(() => {
-    axios
-      .get("https://inventix-backend.onrender.com/v1/users")
-      .then((response) => {
-        setUsers(response.data);
-      });
-  }, []);
-
-  console.log(users);
+  const { data: users, isLoading } = useUsers();
 
   return (
     <div>
@@ -31,7 +20,7 @@ export default function Users() {
           </p>
         </div>
         <div>
-          <BasicTable users={users} />
+          <BasicTable users={users} loading={isLoading} />
         </div>
       </div>
     </div>

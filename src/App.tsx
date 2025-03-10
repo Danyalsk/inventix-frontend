@@ -56,7 +56,7 @@ export default function App() {
 
             {/* Users */}
             <Route path="/users" element={<Users />} />
-            <Route path="/add-users" element={<AddUsers />} />
+            <Route path="/users/add" element={<AddUsers />} />
           </Route>
 
           {/* Auth Layout */}

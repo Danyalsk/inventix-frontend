@@ -1,19 +1,29 @@
 import { useCallback, useEffect, useRef, useState } from "react";
 import { Link, useLocation } from "react-router";
+import {
+  GridIcon,
+  PackageIcon,
+  ShoppingCartIcon,
+  UsersIcon,
+  BarChartIcon,
+  SettingsIcon,
+  CreditCardIcon,
+  LogOutIcon,
+} from "lucide-react";
 
 // Assume these icons are imported from an icon library
 import {
-  BoxCubeIcon,
-  CalenderIcon,
+  // BoxCubeIcon,
+  // CalenderIcon,
   ChevronDownIcon,
-  GridIcon,
+  // GridIcon,
   HorizontaLDots,
-  ListIcon,
-  PageIcon,
-  PieChartIcon,
-  PlugInIcon,
-  TableIcon,
-  UserCircleIcon,
+  // ListIcon,
+  // PageIcon,
+  // PieChartIcon,
+  // PlugInIcon,
+  // TableIcon,
+  // UserCircleIcon,
 } from "../icons";
 import { useSidebar } from "../context/SidebarContext";
 // import SidebarWidget from "./SidebarWidget";
@@ -26,75 +36,118 @@ type NavItem = {
 };
 
 const navItems: NavItem[] = [
+  // Dashboard
   {
     icon: <GridIcon />,
     name: "Dashboard",
     subItems: [{ name: "Ecommerce", path: "/", pro: false }],
   },
+
+  // Warehouse Management
   {
-    icon: <CalenderIcon />,
-    name: "Calendar",
-    path: "/calendar",
+    icon: <PackageIcon />,
+    name: "Warehouse Management",
+    subItems: [
+      { name: "Stock Overview", path: "/warehouse/stock", pro: false },
+      { name: "Incoming Shipments", path: "/warehouse/incoming", pro: false },
+      { name: "Outgoing Shipments", path: "/warehouse/outgoing", pro: false },
+      { name: "Inventory Transfers", path: "/warehouse/transfers", pro: false },
+    ],
   },
+
+  // Products Management
   {
-    icon: <UserCircleIcon />,
-    name: "User Profile",
-    path: "/profile",
+    icon: <ShoppingCartIcon />,
+    name: "Products",
+    subItems: [
+      { name: "All Products", path: "/products", pro: false },
+      { name: "Add New Product", path: "/products/add", pro: false },
+      { name: "Categories & Tags", path: "/products/categories", pro: false },
+      { name: "Stock Levels", path: "/products/stock", pro: false },
+    ],
   },
+
+  // Billing & POS
   {
-    name: "Forms",
-    icon: <ListIcon />,
-    subItems: [{ name: "Form Elements", path: "/form-elements", pro: false }],
+    icon: <CreditCardIcon />,
+    name: "Billing & POS",
+    subItems: [
+      { name: "New Sale (POS)", path: "/pos", pro: false },
+      { name: "Billing History", path: "/billing/history", pro: false },
+      { name: "Discounts & Coupons", path: "/billing/discounts", pro: false },
+    ],
   },
+
+  // Users Management
   {
-    name: "Tables",
-    icon: <TableIcon />,
-    subItems: [{ name: "Basic Tables", path: "/basic-tables", pro: false }],
-  },
-  {
+    icon: <UsersIcon />,
     name: "Users",
-    icon: <PageIcon />,
-    // subItems: [
-    //   { name: "Blank Page", path: "/blank", pro: false },
-    //   { name: "404 Error", path: "/error-404", pro: false },
-    // ],
     subItems: [
       { name: "All Users", path: "/users", pro: false },
-      { name: "Add User", path: "/add-users", pro: false },
+      { name: "Add User", path: "/users/add", pro: false },
     ],
+  },
+
+  // Reports & Analytics
+  {
+    icon: <BarChartIcon />,
+    name: "Reports & Analytics",
+    subItems: [
+      { name: "Inventory Reports", path: "/reports/inventory", pro: false },
+      { name: "Sales Reports", path: "/reports/sales", pro: false },
+      { name: "Profit & Loss", path: "/reports/profit-loss", pro: false },
+    ],
+  },
+
+  // Settings
+  {
+    icon: <SettingsIcon />,
+    name: "Settings",
+    subItems: [
+      { name: "Business Profile", path: "/settings/business", pro: false },
+      { name: "Store Settings", path: "/settings/store", pro: false },
+      { name: "Payment Methods", path: "/settings/payments", pro: false },
+    ],
+  },
+
+  // Logout
+  {
+    icon: <LogOutIcon />,
+    name: "Logout",
+    path: "/logout",
   },
 ];
 
-const othersItems: NavItem[] = [
-  {
-    icon: <PieChartIcon />,
-    name: "Charts",
-    subItems: [
-      { name: "Line Chart", path: "/line-chart", pro: false },
-      { name: "Bar Chart", path: "/bar-chart", pro: false },
-    ],
-  },
-  {
-    icon: <BoxCubeIcon />,
-    name: "UI Elements",
-    subItems: [
-      { name: "Alerts", path: "/alerts", pro: false },
-      { name: "Avatar", path: "/avatars", pro: false },
-      { name: "Badge", path: "/badge", pro: false },
-      { name: "Buttons", path: "/buttons", pro: false },
-      { name: "Images", path: "/images", pro: false },
-      { name: "Videos", path: "/videos", pro: false },
-    ],
-  },
-  {
-    icon: <PlugInIcon />,
-    name: "Authentication",
-    subItems: [
-      { name: "Sign In", path: "/signin", pro: false },
-      { name: "Sign Up", path: "/signup", pro: false },
-    ],
-  },
-];
+// const othersItems: NavItem[] = [
+//   {
+//     icon: <PieChartIcon />,
+//     name: "Charts",
+//     subItems: [
+//       { name: "Line Chart", path: "/line-chart", pro: false },
+//       { name: "Bar Chart", path: "/bar-chart", pro: false },
+//     ],
+//   },
+//   {
+//     icon: <BoxCubeIcon />,
+//     name: "UI Elements",
+//     subItems: [
+//       { name: "Alerts", path: "/alerts", pro: false },
+//       { name: "Avatar", path: "/avatars", pro: false },
+//       { name: "Badge", path: "/badge", pro: false },
+//       { name: "Buttons", path: "/buttons", pro: false },
+//       { name: "Images", path: "/images", pro: false },
+//       { name: "Videos", path: "/videos", pro: false },
+//     ],
+//   },
+//   {
+//     icon: <PlugInIcon />,
+//     name: "Authentication",
+//     subItems: [
+//       { name: "Sign In", path: "/signin", pro: false },
+//       { name: "Sign Up", path: "/signup", pro: false },
+//     ],
+//   },
+// ];
 
 const AppSidebar: React.FC = () => {
   const { isExpanded, isMobileOpen, isHovered, setIsHovered } = useSidebar();
@@ -115,29 +168,29 @@ const AppSidebar: React.FC = () => {
     [location.pathname]
   );
 
-  useEffect(() => {
-    let submenuMatched = false;
-    ["main", "others"].forEach((menuType) => {
-      const items = menuType === "main" ? navItems : othersItems;
-      items.forEach((nav, index) => {
-        if (nav.subItems) {
-          nav.subItems.forEach((subItem) => {
-            if (isActive(subItem.path)) {
-              setOpenSubmenu({
-                type: menuType as "main" | "others",
-                index,
-              });
-              submenuMatched = true;
-            }
-          });
-        }
-      });
-    });
+  // useEffect(() => {
+  //   let submenuMatched = false;
+  //   ["main", "others"].forEach((menuType) => {
+  //     const items = menuType === "main" ? navItems : othersItems;
+  //     items.forEach((nav, index) => {
+  //       if (nav.subItems) {
+  //         nav.subItems.forEach((subItem) => {
+  //           if (isActive(subItem.path)) {
+  //             setOpenSubmenu({
+  //               type: menuType as "main" | "others",
+  //               index,
+  //             });
+  //             submenuMatched = true;
+  //           }
+  //         });
+  //       }
+  //     });
+  //   });
 
-    if (!submenuMatched) {
-      setOpenSubmenu(null);
-    }
-  }, [location, isActive]);
+  //   if (!submenuMatched) {
+  //     setOpenSubmenu(null);
+  //   }
+  // }, [location, isActive]);
 
   useEffect(() => {
     if (openSubmenu !== null) {
@@ -362,7 +415,7 @@ const AppSidebar: React.FC = () => {
                   <HorizontaLDots />
                 )}
               </h2>
-              {renderMenuItems(othersItems, "others")}
+              {/* {renderMenuItems(othersItems, "others")} */}
             </div>
           </div>
         </nav>
