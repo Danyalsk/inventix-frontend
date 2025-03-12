@@ -8,7 +8,8 @@ import Select from "../../components/form/Select";
 // import UserForm from "../../components/form/UserForm";
 import Button from "../../components/ui/button/Button";
 import { EnvelopeIcon } from "../../icons";
-import axios from "axios";
+import { useCreateUser } from "../../hooks/userslist";
+import { UserData } from "../../types/users";
 const countries = [
   { code: "IND", label: "+91" },
   { code: "US", label: "+1" },
@@ -41,7 +42,8 @@ const role = [
 ];
 
 export default function AddUsers() {
-  const [formData, setFormData] = useState({
+  const createUserMutation = useCreateUser();
+  const [formData, setFormData] = useState<UserData>({
     first_name: "",
     last_name: "",
     username: "",
@@ -52,21 +54,23 @@ export default function AddUsers() {
     role: "",
     description: "",
   });
-  const handleClick = async () => {
-    try {
-      const response = await axios.post(
-        "https://inventix-backend.onrender.com/v1/create-user",
-        formData,
-        {
-          headers: {
-            "Content-Type": "application/json",
-          },
-        }
-      );
-      console.log(response);
-    } catch (error) {
-      console.log(error);
-    }
+
+  const handleClick = () => {
+    createUserMutation.mutate(formData, {
+      onSuccess: () => {
+        setFormData({
+          first_name: "",
+          last_name: "",
+          username: "",
+          password: "",
+          email: "",
+          phone: "",
+          status: "",
+          role: "",
+          description: "",
+        });
+      },
+    });
   };
 
   return (
