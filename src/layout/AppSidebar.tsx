@@ -40,7 +40,7 @@ const navItems: NavItem[] = [
   {
     icon: <GridIcon />,
     name: "Dashboard",
-    subItems: [{ name: "Ecommerce", path: "/", pro: false }],
+    subItems: [{ name: "Ecommerce", path: "/dashboard", pro: false }],
   },
 
   // Warehouse Management
@@ -357,7 +357,7 @@ const AppSidebar: React.FC = () => {
           !isExpanded && !isHovered ? "lg:justify-center" : "justify-start"
         }`}
       >
-        <Link to="/" className="w-full flex justify-center">
+        <Link to="/dashboard" className="w-full flex justify-center">
           {isExpanded || isHovered || isMobileOpen ? (
             <>
               <img

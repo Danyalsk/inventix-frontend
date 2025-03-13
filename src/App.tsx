@@ -22,6 +22,7 @@ import Users from "./pages/Users/Users";
 import AddUsers from "./pages/Users/AddUsers";
 import Products from "./pages/Products/AllProducts";
 import AddProduct from "./pages/Products/AddProducts";
+import Landing from "./pages/Eccomerce/landing";
 
 export default function App() {
   return (
@@ -31,7 +32,8 @@ export default function App() {
         <Routes>
           {/* Dashboard Layout */}
           <Route element={<AppLayout />}>
-            <Route index path="/" element={<Home />} />
+            <Route index path="/dashboard" element={<Home />} />
+            <Route index path="/" element={<Landing />} />
 
             {/* Others Page */}
             <Route path="/profile" element={<UserProfiles />} />
