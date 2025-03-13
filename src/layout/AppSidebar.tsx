@@ -51,7 +51,6 @@ const navItems: NavItem[] = [
       { name: "Stock Overview", path: "/warehouse/stock", pro: false },
       { name: "Incoming Shipments", path: "/warehouse/incoming", pro: false },
       { name: "Outgoing Shipments", path: "/warehouse/outgoing", pro: false },
-      { name: "Inventory Transfers", path: "/warehouse/transfers", pro: false },
     ],
   },
 
@@ -62,8 +61,6 @@ const navItems: NavItem[] = [
     subItems: [
       { name: "All Products", path: "/products", pro: false },
       { name: "Add New Product", path: "/products/add", pro: false },
-      { name: "Categories & Tags", path: "/products/categories", pro: false },
-      { name: "Stock Levels", path: "/products/stock", pro: false },
     ],
   },
 

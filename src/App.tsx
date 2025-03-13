@@ -20,6 +20,8 @@ import { ScrollToTop } from "./components/common/ScrollToTop";
 import Home from "./pages/Dashboard/Home";
 import Users from "./pages/Users/Users";
 import AddUsers from "./pages/Users/AddUsers";
+import Products from "./pages/Products/AllProducts";
+import AddProduct from "./pages/Products/AddProducts";
 
 export default function App() {
   return (
@@ -57,6 +59,8 @@ export default function App() {
             {/* Users */}
             <Route path="/users" element={<Users />} />
             <Route path="/users/add" element={<AddUsers />} />
+            <Route path="/products" element={<Products />} />
+            <Route path="/products/add" element={<AddProduct />} />
           </Route>
 
           {/* Auth Layout */}

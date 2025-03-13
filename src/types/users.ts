@@ -9,3 +9,13 @@ export interface UserData {
   role: string;
   description: string;
 }
+
+export interface ProductData {
+  barcode: string;
+  name: string;
+  nickname: string;
+  description: string;
+  supplier: string;
+  purchase_price: string;
+  selling_price: string;
+}
