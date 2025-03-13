@@ -22,8 +22,7 @@ import Users from "./pages/Users/Users";
 import AddUsers from "./pages/Users/AddUsers";
 import Products from "./pages/Products/AllProducts";
 import AddProduct from "./pages/Products/AddProducts";
-import Landing from "./pages/Eccomerce/landing";
-
+import Landing from "./pages/Eccomerce/Landing";
 export default function App() {
   return (
     <>
@@ -33,7 +32,6 @@ export default function App() {
           {/* Dashboard Layout */}
           <Route element={<AppLayout />}>
             <Route index path="/dashboard" element={<Home />} />
-            <Route index path="/" element={<Landing />} />
 
             {/* Others Page */}
             <Route path="/profile" element={<UserProfiles />} />
@@ -68,6 +66,7 @@ export default function App() {
           {/* Auth Layout */}
           <Route path="/signin" element={<SignIn />} />
           <Route path="/signup" element={<SignUp />} />
+          <Route index path="/" element={<Landing />} />
 
           {/* Fallback Route */}
           <Route path="*" element={<NotFound />} />
