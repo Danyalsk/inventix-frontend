@@ -10,6 +10,7 @@ import Button from "../../components/ui/button/Button";
 import { EnvelopeIcon } from "../../icons";
 import { useCreateUser } from "../../hooks/userslist";
 import { UserData } from "../../types/users";
+import toast, { Toaster } from "react-hot-toast";
 const countries = [
   { code: "IND", label: "+91" },
   { code: "US", label: "+1" },
@@ -54,28 +55,32 @@ export default function AddUsers() {
     role: "",
     description: "",
   });
-
   const handleClick = () => {
-    createUserMutation.mutate(formData, {
-      onSuccess: () => {
-        setFormData({
-          first_name: "",
-          last_name: "",
-          username: "",
-          password: "",
-          email: "",
-          phone: "",
-          status: "",
-          role: "",
-          description: "",
-        });
-      },
-    });
+    setTimeout(() => {
+      createUserMutation.mutate(formData, {
+        onSuccess: () => {
+          setFormData({
+            first_name: "",
+            last_name: "",
+            username: "",
+            password: "",
+            email: "",
+            phone: "",
+            status: "",
+            role: "",
+            description: "",
+          });
+          toast("User Added Successfully");
+        },
+      });
+    }, 200); // 200ms delay, adjust as needed
   };
 
   return (
     <div>
       <PageBreadcrumb pageTitle="Add User" />
+      <Toaster />
+
       <div className="min-h-screen rounded-2xl border border-gray-200 bg-white px-5 py-7 dark:border-gray-800 dark:bg-white/[0.03] xl:px-10 xl:py-12">
         <div className="mx-auto w-full max-w-[800px] text-center">
           <p className="text-sm text-gray-500 dark:text-gray-400 sm:text-base">

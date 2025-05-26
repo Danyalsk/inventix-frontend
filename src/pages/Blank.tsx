@@ -19,6 +19,9 @@ export default function Blank() {
             Start putting content on grids or panels, you can also use different
             combinations of grids.Please check out the dashboard and other pages
           </p>
+
+
+          
         </div>
       </div>
     </div>
